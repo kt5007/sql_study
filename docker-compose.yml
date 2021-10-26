@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  pgsql_study:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./pgsql_db:/var/lib/postgresql/data
+    container_name: pgsql_study
+  mysql_study:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: secret
+    volumes:
+      - ./mysql_db:/var/lib/mysql
+    container_name: mysql_study
